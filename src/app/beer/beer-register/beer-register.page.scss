@@ -1,0 +1,23 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.image-box {
+    border: 1px solid rgb(56, 128, 255);
+    margin-top: 50px;
+    padding: 30px 50px 10px 50px;
+
+    ion-button {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+    }
+}

@@ -1,5 +1,7 @@
 {
   "name": "rotaCerveja",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

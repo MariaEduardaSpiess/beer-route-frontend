@@ -2,8 +2,23 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const url_local = 'http://localhost:8080';
+
+const API_LOCAL = {
+    postBeer: url_local + '/beer',
+    getBeers: url_local + '/beers'
+}
+
+const url_heroku = 'https://beer-route.herokuapp.com';
+
+const API_HEROKU = {
+    postBeer: url_heroku + '/beer',
+    getBeers: url_heroku + '/beers'
+}
+
 export const environment = {
-  production: false
+  production: false,
+  api: API_HEROKU
 };
 
 /*
