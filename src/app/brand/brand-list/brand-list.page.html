@@ -4,10 +4,10 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons> -->
     <ion-title>
-      Cervejas
+      Home
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="beer-register">
+      <ion-button routerLink="brand-register">
         <ion-icon slot="icon-only" name="add"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -15,24 +15,23 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-refresher slot="fixed" (ionRefresh)="getBeers($event)">
+  <ion-refresher slot="fixed" (ionRefresh)="getBrands($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list *ngIf="beers">
-    <ion-item *ngFor="let beer of beers" lines="full">
+  <ion-list *ngIf="brands">
+    <ion-item *ngFor="let brand of brands" lines="full" (click)="selectBrand(brand)">
       <ion-thumbnail slot="start">
-        <img [src]="beer.image">
+        <img [src]="brand.image">
       </ion-thumbnail>
       <ion-label class="ion-text-wrap">
         <ion-text color="primary">
-          <h3>{{beer.description}}</h3>
+          <h3>{{brand.description}}</h3>
         </ion-text>
-        <p>{{beer.brand}}</p>
+        <p>{{brand.brand}}</p>
       </ion-label>
-      <ion-checkbox slot="end"></ion-checkbox>
     </ion-item>
   </ion-list>
-  <div *ngIf="!beers">
+  <div *ngIf="!brands">
       <ion-list>
         <ion-item>
           <ion-thumbnail slot="start">

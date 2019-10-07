@@ -6,19 +6,23 @@ const url_local = 'http://localhost:8080';
 
 const API_LOCAL = {
     postBeer: url_local + '/beer',
-    getBeers: url_local + '/beers'
+    getBeers: url_local + '/beers',
+    postBrand: url_local + '/brand',
+    getBrands: url_local + '/brands'
 }
 
 const url_heroku = 'https://beer-route.herokuapp.com';
 
 const API_HEROKU = {
     postBeer: url_heroku + '/beer',
-    getBeers: url_heroku + '/beers'
+    getBeers: url_heroku + '/beers',
+    postBrand: url_heroku + '/brand',
+    getBrands: url_heroku + '/brands'
 }
 
 export const environment = {
   production: false,
-  api: API_HEROKU
+  api: API_LOCAL
 };
 
 /*

@@ -4,15 +4,15 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class BeerService {
+export class BrandService {
     constructor(private http: HttpClient) { }
 
-    postBeer(payload): Observable<any> {
-        return this.http.post<any>(environment.api.postBeer, payload);
+    postBrand(payload): Observable<any> {
+        return this.http.post<any>(environment.api.postBrand, payload);
     }
 
-    getBeers(brandId): Observable<any> {
-        return this.http.get<any>(environment.api.getBeers + `/${brandId}`);
+    getBrands(): Observable<any> {
+        return this.http.get<any>(environment.api.getBrands);
     }
     
 }

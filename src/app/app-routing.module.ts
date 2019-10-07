@@ -9,6 +9,10 @@ const routes: Routes = [
   },
   {
     path: 'home',
+    loadChildren: () => import('./brand/brand.module').then(m => m.BrandPageModule)
+  },
+  {
+    path: 'beer',
     loadChildren: () => import('./beer/beer.module').then(m => m.BeerPageModule)
   },
   {
