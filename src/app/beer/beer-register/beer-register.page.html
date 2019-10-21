@@ -16,12 +16,14 @@
             <ion-input type="text" formControlName="description"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="stacked">Marca</ion-label>
-            <ion-input type="text" formControlName="brand"></ion-input>
+            <ion-label>Marca</ion-label>
+            <ion-select placeholder="Selecionar" formControlName="brand">
+                <ion-select-option *ngFor="let brand of brands" [value]="brand">{{brand.description}}</ion-select-option>
+            </ion-select>
         </ion-item>
     </form>
     <div class="center image-box">
-        <img [src]="getImgContent(form?.value?.image)" width="100" height="100"/>
+        <img [src]="getImgContent(form?.value?.image)" width="100" height="100" />
         <ion-button expand="block" fill="outline" (click)="selectImage()">
             <ion-icon slot="start" name="cloud-upload"></ion-icon>
             Selecionar Imagem

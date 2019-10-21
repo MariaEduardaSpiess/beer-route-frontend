@@ -19,7 +19,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-list *ngIf="brands">
-    <ion-item *ngFor="let brand of brands" lines="full" (click)="selectBrand(brand)">
+    <ion-item *ngFor="let brand of brands" lines="full" (click)="selectBrand(brand.id)">
       <ion-thumbnail slot="start">
         <img [src]="brand.image">
       </ion-thumbnail>

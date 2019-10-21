@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BrandService } from '../brand.service';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { Brand } from 'src/models/brand';
+import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-brand-list',
@@ -9,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class BrandListPage implements OnInit {
 
-    brands;
+    brands: Array<Brand>;
 
-    constructor(private brandService: BrandService, private router: Router) { }
+    constructor(private brandService: BrandService, private router: Router, private storage: Storage) { }
 
     ngOnInit() {
         this.getBrands(null);
@@ -21,14 +22,15 @@ export class BrandListPage implements OnInit {
         this.brandService.getBrands()
             .subscribe((brands) => {
                 this.brands = brands;
+                this.storage.set('brands', this.brands);
                 if (event) {
                     event.target.complete();
                 }
             });
     }
 
-    selectBrand(brand) {
-        this.router.navigate(['/beer', brand]);
+    selectBrand(brandId) {
+        this.router.navigate(['/beer', {brandId: brandId}]);
     }
 
 }

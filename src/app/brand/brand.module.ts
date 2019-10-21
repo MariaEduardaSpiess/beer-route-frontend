@@ -22,7 +22,7 @@ const routes: Routes = [
     component: BrandRegisterPage
   },
   {
-    path: 'beer/:brand',
+    path: 'beer/:brandId',
     loadChildren: () => import('../beer/beer.module').then(m => m.BeerPageModule)
   }
 ];

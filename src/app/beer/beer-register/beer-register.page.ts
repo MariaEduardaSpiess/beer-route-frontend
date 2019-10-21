@@ -4,6 +4,9 @@ import { ActionSheetController, ToastController, LoadingController } from '@ioni
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BeerService } from '../beer.service';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { BrandService } from 'src/app/brand/brand.service';
+import { Brand } from 'src/models/brand';
+import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-beer-register',
@@ -15,6 +18,7 @@ export class BeerRegisterPage implements OnInit {
 
     croppedImagepath = "";
     isLoading = false;
+    brands: Array<Brand>;
 
     imagePickerOptions = {
         maximumImagesCount: 1,
@@ -31,12 +35,18 @@ export class BeerRegisterPage implements OnInit {
         private camera: Camera,
         public actionSheetController: ActionSheetController,
         private beerService: BeerService,
+        private brandService: BrandService,
         public toastController: ToastController,
         private sanitizer: DomSanitizer,
-        private loader: LoadingController
+        private loader: LoadingController,
+        private storage: Storage
     ) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.storage.get('brands').then((brandsJSON) => {
+            this.brands = brandsJSON;
+        });
+    }
 
     pickImage(sourceType) {
         const options: CameraOptions = {
@@ -80,6 +90,7 @@ export class BeerRegisterPage implements OnInit {
     save() {
         this.loader.create();
         this.form.patchValue({image: 'https://mambo.vteximg.com.br/arquivos/ids/234273/154647_Cerveja-Eisenbahn-Pilsen-Long-Neck-355ml.jpg?v=636728641723000000'});
+        debugger
         this.beerService.postBeer(this.form.value)
             .subscribe(() => {
                 this.loader.dismiss();

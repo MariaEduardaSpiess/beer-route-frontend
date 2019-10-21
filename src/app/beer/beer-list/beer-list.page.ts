@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../beer.service';
 import { ActivatedRoute } from '@angular/router';
+import { Beer } from 'src/models/beer';
 
 @Component({
     selector: 'app-beer-list',
@@ -8,20 +9,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class BeerListPage implements OnInit {
 
-    beers;
+    beers: Array<Beer>;
     brandId: number;
 
     constructor(private beerService: BeerService, private route: ActivatedRoute) { }
 
     ngOnInit() {
-        debugger
-        this.brandId = parseInt(this.route.snapshot.paramMap.get('id'));
+        this.brandId = parseInt(this.route.snapshot.paramMap.get('brandId'));
         this.getBeers(null);
     }
 
     getBeers(event) {
         this.beerService.getBeers(this.brandId)
-            .subscribe((beers) => {
+            .subscribe((beers: Array<Beer>) => {
                 this.beers = beers;
                 if (event) {
                     event.target.complete();

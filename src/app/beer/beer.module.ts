@@ -7,6 +7,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BeerListPage } from './beer-list/beer-list.page';
 import { BeerRegisterPage } from './beer-register/beer-register.page';
 import { BeerService } from './beer.service';
+import { BrandService } from '../brand/brand.service';
 
 const routes: Routes = [
   {
@@ -29,9 +30,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   declarations: [BeerListPage, BeerRegisterPage],
-  providers: [BeerService]
+  providers: [BeerService, BrandService]
 })
 export class BeerPageModule { }
