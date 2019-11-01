@@ -5,7 +5,8 @@ import { Beer } from 'src/models/beer';
 
 @Component({
     selector: 'app-beer-list',
-    templateUrl: 'beer-list.page.html'
+    templateUrl: 'beer-list.page.html',
+    styleUrls: ['beer-list.page.scss']
 })
 export class BeerListPage implements OnInit {
 

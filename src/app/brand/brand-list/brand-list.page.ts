@@ -6,7 +6,8 @@ import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-brand-list',
-    templateUrl: 'brand-list.page.html'
+    templateUrl: 'brand-list.page.html',
+    styleUrls: ['brand-list.page.scss']
 })
 export class BrandListPage implements OnInit {
 
