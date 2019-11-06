@@ -54,22 +54,22 @@ export class BrandRegisterPage implements OnInit {
 
     async selectImage() {
         const actionSheet = await this.actionSheetController.create({
-            header: "Select Image source",
+            header: "Selecionar imagem",
             buttons: [{
-                text: 'Load from Library',
+                text: 'Procurar na Galeria',
                 handler: () => {
                     this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
                 }
             },
             {
-                text: 'Use Camera',
+                text: 'Usar Câmera',
                 handler: () => {
                     this.pickImage(this.camera.PictureSourceType.CAMERA);
                 }
             },
             {
-                text: 'Cancel',
-                role: 'cancel'
+                text: 'Cancelar',
+                role: 'cancelar'
             }
             ]
         });

@@ -1,5 +1,6 @@
 export class Brand {
     id: number;
-    description: String;
-    image: String;
+    description: string;
+    latlng: string;
+    image: string;
 }

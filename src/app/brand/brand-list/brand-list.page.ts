@@ -6,7 +6,8 @@ import { Storage } from '@ionic/storage';
 
 @Component({
     selector: 'app-brand-list',
-    templateUrl: 'brand-list.page.html'
+    templateUrl: 'brand-list.page.html',
+    styleUrls: ['brand-list.page.scss']
 })
 export class BrandListPage implements OnInit {
 
@@ -17,10 +18,10 @@ export class BrandListPage implements OnInit {
     ngOnInit() {
         this.getBrands(null);
     }
-    
+
     getBrands(event) {
         this.brandService.getBrands()
-            .subscribe((brands) => {
+            .then((brands) => {
                 this.brands = brands;
                 this.storage.set('brands', this.brands);
                 if (event) {
@@ -30,7 +31,7 @@ export class BrandListPage implements OnInit {
     }
 
     selectBrand(brandId) {
-        this.router.navigate(['/beer', {brandId: brandId}]);
+        this.router.navigate(['/beer', { brandId: brandId }]);
     }
 
 }

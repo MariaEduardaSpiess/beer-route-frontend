@@ -1,10 +1,10 @@
 <ion-header>
   <ion-toolbar color="secondary">
-    <!-- <ion-buttons slot="start">
+    <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-    </ion-buttons> -->
+    </ion-buttons>
     <ion-title>
-      Home
+      Cervejarias
     </ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="brand-register">
@@ -18,34 +18,33 @@
   <ion-refresher slot="fixed" (ionRefresh)="getBrands($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  <ion-list *ngIf="brands">
-    <ion-item *ngFor="let brand of brands" lines="full" (click)="selectBrand(brand.id)">
-      <ion-thumbnail slot="start">
-        <img [src]="brand.image">
-      </ion-thumbnail>
-      <ion-label class="ion-text-wrap">
-        <ion-text color="primary">
-          <h3>{{brand.description}}</h3>
-        </ion-text>
-        <p>{{brand.brand}}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-  <div *ngIf="!brands">
-      <ion-list>
-        <ion-item>
-          <ion-thumbnail slot="start">
-            <ion-skeleton-text animated></ion-skeleton-text>
-          </ion-thumbnail>
-          <ion-label>
-            <h3>
-              <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
-            </h3>
-            <p>
-              <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
-            </p>
-          </ion-label>
-        </ion-item>
-      </ion-list>
-    </div>
+  <ion-card *ngFor="let brand of brands" (click)="selectBrand(brand.id)">
+    <img [src]="brand.image" />
+    <!-- <img src="./../../../assets/images/AllesBlau.jpg" /> -->
+    <ion-card-header>
+      <ion-card-subtitle>Distância: 15Km</ion-card-subtitle>
+      <ion-card-title>{{brand.description}}</ion-card-title>
+    </ion-card-header>
+    <!-- <ion-card-content>
+      Distância: 15Km
+    </ion-card-content> -->
+  </ion-card>
+  
+  <!-- <div *ngIf="!brands">
+    <ion-list>
+      <ion-item>
+        <ion-thumbnail slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div> -->
 </ion-content>

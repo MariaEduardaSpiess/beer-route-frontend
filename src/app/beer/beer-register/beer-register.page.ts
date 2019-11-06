@@ -65,22 +65,22 @@ export class BeerRegisterPage implements OnInit {
 
     async selectImage() {
         const actionSheet = await this.actionSheetController.create({
-            header: "Select Image source",
+            header: "Selecionar imagem",
             buttons: [{
-                text: 'Load from Library',
+                text: 'Procurar na Galeria',
                 handler: () => {
                     this.pickImage(this.camera.PictureSourceType.PHOTOLIBRARY);
                 }
             },
             {
-                text: 'Use Camera',
+                text: 'Usar Câmera',
                 handler: () => {
                     this.pickImage(this.camera.PictureSourceType.CAMERA);
                 }
             },
             {
-                text: 'Cancel',
-                role: 'cancel'
+                text: 'Cancelar',
+                role: 'cancelar'
             }
             ]
         });
@@ -89,8 +89,6 @@ export class BeerRegisterPage implements OnInit {
 
     save() {
         this.loader.create();
-        this.form.patchValue({image: 'https://mambo.vteximg.com.br/arquivos/ids/234273/154647_Cerveja-Eisenbahn-Pilsen-Long-Neck-355ml.jpg?v=636728641723000000'});
-        debugger
         this.beerService.postBeer(this.form.value)
             .subscribe(() => {
                 this.loader.dismiss();

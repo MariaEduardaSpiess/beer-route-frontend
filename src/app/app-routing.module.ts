@@ -19,7 +19,13 @@ const routes: Routes = [
     path: 'beer',
     loadChildren: () => import('./beer/beer.module').then(m => m.BeerPageModule)
   },
-  { path: 'login', loadChildren: './login/login.module#LoginPageModule' }
+  { path: 'login',
+    loadChildren: './login/login.module#LoginPageModule'
+  },
+  { path: 'map',
+    loadChildren: './map/map.module#MapPageModule'
+  }
+
 
 ];
 
@@ -29,4 +35,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
