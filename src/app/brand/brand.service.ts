@@ -13,8 +13,7 @@ export class BrandService {
         return this.http.post<Brand>(environment.api.postBrand, payload);
     }
 
-    getBrands(): Observable<Array<Brand>> {
-        return this.http.get<Array<Brand>>(environment.api.getBrands);
+    getBrands(): Promise<Array<Brand>> {
+        return this.http.get<Array<Brand>>(environment.api.getBrands).toPromise();
     }
-    
 }

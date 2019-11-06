@@ -18,10 +18,10 @@ export class BrandListPage implements OnInit {
     ngOnInit() {
         this.getBrands(null);
     }
-    
+
     getBrands(event) {
         this.brandService.getBrands()
-            .subscribe((brands) => {
+            .then((brands) => {
                 this.brands = brands;
                 this.storage.set('brands', this.brands);
                 if (event) {
@@ -31,7 +31,7 @@ export class BrandListPage implements OnInit {
     }
 
     selectBrand(brandId) {
-        this.router.navigate(['/beer', {brandId: brandId}]);
+        this.router.navigate(['/beer', { brandId: brandId }]);
     }
 
 }
