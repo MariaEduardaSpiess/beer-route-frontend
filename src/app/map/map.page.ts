@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 import { Brand } from 'src/models/brand';
 import { Storage } from '@ionic/storage';
 import { BrandService } from '../brand/brand.service';
@@ -17,9 +17,10 @@ export class MapPage {
   @ViewChild('map', { static: false }) mapElement: ElementRef;
   map: any;
 
-  constructor(public navCtrl: NavController, private storage: Storage, private brandService: BrandService) {
-
-  }
+  constructor(public navCtrl: NavController,
+              private storage: Storage,
+              private brandService: BrandService,
+              public loadingController: LoadingController) { }
 
   async getBrands() {
     await this.brandService.getBrands()
@@ -36,19 +37,10 @@ export class MapPage {
     let content;
     this.brands.forEach(brand => {
       latlng = brand.latlng.split(';');
-      // content = '<h4>' + brand.description + '</h4><br><img';
-      // content = `<h4 style='color: #f2a951'>${brand.description}</h4><br>
-      //           <img src='${brand.image}' style='width: 100px; height: 100px'>
-      //           <ion-progress-bar value="0.5"></ion-progress-bar>`;
-      content = `<ion-card color='secondary'>
-                  <img src='${brand.image}' style='height: 150px'>
-                  <ion-card-header>
-                    <ion-card-title>${brand.description}</ion-card-title>
-                  </ion-card-header>
-                  <ion-card-content>
-                    <ion-progress-bar value="0.5"></ion-progress-bar>
-                  </ion-card-content>
-                </ion-card>`;
+      content = `<img src='${brand.image}' style='height: 180px; width: 100%;'>
+                 <h3>${brand.description}</h3>
+                 <ion-progress-bar value="0.5"></ion-progress-bar>
+                 <p>Você já degustou <strong>50%</strong> das cervejas desta marca! Continue assim para se tornar um especialista!</p>`;
       this.addMarker({ lat: Number(latlng[0]), lng: Number(latlng[1]) }, content);
     });
   }

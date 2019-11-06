@@ -7,7 +7,8 @@
 
   <base href="/" />
 
-  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+    content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="msapplication-tap-highlight" content="no" />
 
@@ -16,6 +17,67 @@
   <!-- add to homescreen for ios -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+  <style>
+    /*style the box*/
+    .gm-style .gm-style-iw {
+      background-color: #272c33 !important;
+      padding: 20px;
+      display: block !important;
+      /* border: 1px solid #f2a951; */
+      -webkit-box-shadow: 5px 5px 42px -12px rgba(242, 169, 81, 0.76);
+      -moz-box-shadow: 5px 5px 42px -12px rgba(242, 169, 81, 0.76);
+      box-shadow: 5px 5px 42px -12px rgba(242, 169, 81, 0.76);
+    }
+
+    /*style the p tag*/
+    .gm-style .gm-style-iw #google-popup p {
+      padding: 10px;
+    }
+
+
+    /*style the arrow*/
+    .gm-style .gm-style-iw-t::after {
+      background-color: #272c33 !important;
+      padding: 0;
+      margin: 0;
+      padding: 0;
+      top: 0;
+      color: #fff;
+      font-size: 16px;
+    }
+
+    /*style the link*/
+    .gm-style div div div div div div div div a {
+      color: #f1f1f1;
+      font-weight: bold;
+    }
+
+    .gm-style .gm-style-iw-d::-webkit-scrollbar-track,
+    .gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece {
+      background-color: #272c33 !important;
+    }
+
+    .gm-style-iw-d h3 {
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .gm-style-iw-d ion-progress-bar {
+      margin-bottom: 15px;
+      height: 6px;
+    }
+
+    .gm-style .gm-style-iw-t::after {
+      background: #272c33 !important;
+      box-shadow: none;
+      -webkit-box-shadow: 5px 5px 42px -12px rgba(242, 169, 81, 0.76);
+      -moz-box-shadow: 5px 5px 42px -12px rgba(242, 169, 81, 0.76);
+      box-shadow: 5px 5px 42px -12px rgba(242, 169, 81, 0.76);
+      /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+      /* border: 1px solid #f2a951; */
+    }
+  </style>
 </head>
 
 <body>
