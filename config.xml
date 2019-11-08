@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.rotacerveja" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>
-		MyApp
+		Rota da Cerveja
 	</name>
     <description>
-		An awesome Ionic/Cordova app.
+		Aplicativo para acompanhamento do progresso do usuário na Rota da Cerveja.
 	</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">
-		Ionic Framework Team
+    <author email="dudaspiess@gmail.com" href="https://github.com/MariaEduardaSpiess">
+		Maria Eduarda Spiess
 	</author>
     <content src="index.html" />
     <access origin="*" />

@@ -3,4 +3,5 @@ export class Brand {
     description: string;
     latlng: string;
     image: string;
+    distance: string;
 }

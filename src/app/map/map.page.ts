@@ -36,7 +36,7 @@ export class MapPage {
     let latlng;
     let content;
     this.brands.forEach(brand => {
-      latlng = brand.latlng.split(';');
+      latlng = brand.latlng.split(',');
       content = `<img src='${brand.image}' style='height: 180px; width: 100%;'>
                  <h3>${brand.description}</h3>
                  <ion-progress-bar value="0.5"></ion-progress-bar>
