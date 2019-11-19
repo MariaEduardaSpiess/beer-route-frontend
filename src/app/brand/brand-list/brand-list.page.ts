@@ -3,6 +3,7 @@ import { BrandService } from '../brand.service';
 import { Router } from '@angular/router';
 import { Brand } from 'src/models/brand';
 import { Storage } from '@ionic/storage';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
     selector: 'app-brand-list',
@@ -12,14 +13,21 @@ import { Storage } from '@ionic/storage';
 export class BrandListPage implements OnInit {
 
     brands: Array<Brand>;
+    private loading;
 
-    constructor(private brandService: BrandService, private router: Router, private storage: Storage) { }
+    constructor(private brandService: BrandService,
+                private router: Router,
+                private storage: Storage,
+                public loadingController: LoadingController) { }
 
     ngOnInit() {
         this.getBrands(null);
     }
 
     getBrands(event) {
+        if (!event) {
+            this.presentLoading();
+        }
         this.brandService.getBrands()
             .then((brands) => {
                 this.brands = brands;
@@ -44,7 +52,13 @@ export class BrandListPage implements OnInit {
         await this.brandService.getDistances(destinations);
         this.storage.get('brands').then(brands => {
             this.brands = brands;
+            this.loading.dismiss();
         });
+    }
+
+    async presentLoading() {
+        this.loading = await this.loadingController.create();
+        await this.loading.present();
     }
 
 }

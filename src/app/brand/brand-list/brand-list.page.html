@@ -19,7 +19,7 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-card *ngFor="let brand of brands" (click)="selectBrand(brand.id)">
-    <img [src]="brand.image" />
+    <img [src]="'./../../../assets/images/brands/' + brand.logo_name + '.png'" />
     <!-- <img src="./../../../assets/images/AllesBlau.jpg" /> -->
     <ion-card-header>
       <ion-card-subtitle>Distância: {{brand.distance}}</ion-card-subtitle>

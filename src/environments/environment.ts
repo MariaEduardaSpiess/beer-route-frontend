@@ -2,27 +2,35 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-const url_local = 'http://localhost:8080';
+const URL_LOCAL = 'http://localhost:8080';
 
 const API_LOCAL = {
-    postBeer: url_local + '/beer',
-    getBeers: url_local + '/beers',
-    postBrand: url_local + '/brand',
-    getBrands: url_local + '/brands'
-}
+    postBeer: URL_LOCAL + '/beer',
+    getBeers: URL_LOCAL + '/beers',
+    postBrand: URL_LOCAL + '/brand',
+    getBrands: URL_LOCAL + '/brands'
+};
 
-const url_heroku = 'https://beer-route.herokuapp.com';
+const URL_HEROKU = 'https://beer-route.herokuapp.com';
 
 const API_HEROKU = {
-    postBeer: url_heroku + '/beer',
-    getBeers: url_heroku + '/beers',
-    postBrand: url_heroku + '/brand',
-    getBrands: url_heroku + '/brands'
-}
+    postBeer: URL_HEROKU + '/beer',
+    getBeers: URL_HEROKU + '/beers',
+    postBrand: URL_HEROKU + '/brand',
+    getBrands: URL_HEROKU + '/brands'
+};
+
+const API_MOCK = {
+    postBeer: URL_HEROKU + '/beer',
+    getBeers: URL_HEROKU + '/beers',
+    postBrand: URL_HEROKU + '/brand',
+    getBrands: 'http://www.mocky.io/v2/5dd2efe133000075007a3f55'
+
+};
 
 export const environment = {
-  production: false,
-  api: API_HEROKU
+    production: false,
+    api: API_MOCK
 };
 
 /*

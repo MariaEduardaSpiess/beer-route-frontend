@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { MapPage } from './map.page';
 import { BrandService } from '../brand/brand.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 const routes: Routes = [
   {
@@ -23,6 +24,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
   declarations: [MapPage],
-  providers: [BrandService]
+  providers: [BrandService, Geolocation]
 })
 export class MapPageModule {}

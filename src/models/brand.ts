@@ -4,4 +4,5 @@ export class Brand {
     latlng: string;
     image: string;
     distance: string;
+    logo_name: string;
 }
